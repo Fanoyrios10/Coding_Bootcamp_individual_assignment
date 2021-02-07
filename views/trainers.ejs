@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+    </head>
+    <body>
+        <h1 style="text-align: center"><%= title %></h1>
+        <table>
+            <tr>
+                <th>Number</th>
+                <th>First Name</th>
+                <th>Last Nmae</th>
+                <th>Subject</th>
+            </tr>
+            <% for (let i = 0; i < trainers.length; i++) { %>
+            <tr>
+                <td><%=i+1%></td>
+                <td><%= trainers[i].first_name%></td>
+                <td><%= trainers[i].last_name%></td>
+                <td><%= trainers[i].subject%></td>
+            </tr>
+            <%}%>
+        </table>
+    </body>
+</html>

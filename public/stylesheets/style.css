@@ -1,8 +1,68 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00b7ff;
+}
+
+table {
+    width: 100%;
+    border: 5px solid green;
+    text-align: center;
+    padding: 10px;
+    border-collapse: collapse;
+}
+
+table td,
+table th {
+    border: 5px solid grey;
+    padding: 5px;
+}
+
+th {
+    border: 5px solid grey;
+    background-color: teal;
+    font-size: x-large;
+}
+
+a {
+    color: black;
+}
+tr:nth-child(odd) {
+    background-color: tomato;
+}
+tr:nth-child(even) {
+    background-color: green;
+}
+
+tr:hover:nth-child(odd) {
+    background-color: black;
+    color: white;
+    transition: 1.5s;
+}
+
+tr:hover:nth-child(odd) a {
+    color: white;
+    transition: 1.5s;
+}
+
+tr:hover:nth-child(even) {
+    color: red;
+    background-color: blue;
+    transition: 1.5s;
+}
+
+tr:hover:nth-child(even) a {
+    color: red;
+    transition: 1.5s;
+}
+
+tr:not(:hover):nth-child(odd) {
+    transition: 1.5s;
+}
+
+tr:not(:hover):nth-child(even) {
+    transition: 1.5s;
 }

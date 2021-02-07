@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+    </head>
+    <body>
+        <h1 style="text-align: center"><%= title %></h1>
+        <table>
+            <tr>
+                <th>Number</th>
+                <th>Title</th>
+                <th>Stream</th>
+                <th>Type</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+            <% for (let i = 0; i < courses.length; i++) { %>
+            <tr>
+                <td><%=i+1%></td>
+                <td><%= courses[i].title%></td>
+                <td><%= courses[i].stream%></td>
+                <td><%= courses[i].type%></td>
+                <td><%= courses[i].start_date.toLocaleString()%></td>
+                <td><%= courses[i].end_date.toLocaleString()%></td>
+            </tr>
+            <%}%>
+        </table>
+    </body>
+</html>

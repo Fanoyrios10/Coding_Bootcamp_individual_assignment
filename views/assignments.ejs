@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+    </head>
+    <body>
+        <h1 style="text-align: center"><%= title %></h1>
+        <table>
+            <tr>
+                <th>Number</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Oral Mark</th>
+                <th>Write Mark</th>
+                <th>Total Mark</th>
+            </tr>
+            <% for (let i = 0; i < assignments.length; i++) { %>
+            <tr>
+                <td><%=i+1%></td>
+                <td><%= assignments[i].title%></td>
+                <td><%= assignments[i].description%></td>
+                <td><%= assignments[i].oral_mark%></td>
+                <td><%= assignments[i].write_mark%></td>
+                <td><%= assignments[i].total_mark%></td>
+            </tr>
+            <%}%>
+        </table>
+    </body>
+</html>

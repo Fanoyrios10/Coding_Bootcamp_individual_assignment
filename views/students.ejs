@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+    </head>
+    <body>
+        <h1 style="text-align: center"><%= title %></h1>
+        <table>
+            <tr>
+                <th>Number</th>
+                <th>First Name</th>
+                <th>Last Nmae</th>
+                <th>Date Of Birth</th>
+                <th>Tutition Fees</th>
+            </tr>
+            <% for (let i = 0; i < students.length; i++) { %>
+            <tr>
+                <td><%=i+1%></td>
+                <td><%= students[i].first_Name%></td>
+                <td><%= students[i].last_name%></td>
+                <td><%= students[i].date_of_birth.toLocaleString()%></td>
+                <td><%= students[i].tutition_Fees%></td>
+            </tr>
+            <%}%>
+        </table>
+    </body>
+</html>
