@@ -1,26 +1,46 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title><%= title %></title>
-        <link rel="stylesheet" href="/stylesheets/style.css" />
-    </head>
-    <body>
-        <h1 style="text-align: center"><%= title %></h1>
-        <table>
-            <tr>
-                <th>Number</th>
-                <th>First Name</th>
-                <th>Last Nmae</th>
-                <th>Subject</th>
-            </tr>
-            <% for (let i = 0; i < trainers.length; i++) { %>
-            <tr>
-                <td><%=i+1%></td>
-                <td><%= trainers[i].first_name%></td>
-                <td><%= trainers[i].last_name%></td>
-                <td><%= trainers[i].subject%></td>
-            </tr>
-            <%}%>
-        </table>
-    </body>
+<html lang="en">
+    <html>
+        <head>
+            <title><%= title %></title>
+            <meta charset="UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0"
+            />
+            <link rel="stylesheet" href="/stylesheets/style.css" />
+        </head>
+        <body>
+            <h1 style="text-align: center"><%= title %></h1>
+            <div style="text-align: center">
+                <button onclick="change_new_trainer()">New Trainer</button>
+                <button onclick="home()">Home</button>
+            </div>
+            <table>
+                <tr>
+                    <th>Number</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Subject</th>
+                </tr>
+                <% for (let i = 0; i < trainers.length; i++) { %>
+                <tr>
+                    <td><%=i+1%></td>
+                    <td><%= trainers[i].first_name%></td>
+                    <td><%= trainers[i].last_name%></td>
+                    <td><%= trainers[i].subject%></td>
+                </tr>
+                <%}%>
+            </table>
+        </body>
+        <script>
+            function change_new_trainer() {
+                location.href = '/trainers/new';
+            }
+            function home() {
+                location.href = '/';
+            }
+        </script>
+    </html>
 </html>

@@ -24,4 +24,31 @@ router.get('/', function (req, res, next) {
     });
 });
 
+router.get('/new/', function (req, res, next) {
+    res.render('new_trainer', { message: '' });
+});
+
+router.post('/new/', function (req, res, next) {
+    let trainer = new Trainer(
+        req.body.trainer_first_name,
+        req.body.trainer_last_name,
+        req.body.trainer_subject
+    );
+    const query = `INSERT INTO trainers(first_name, last_name,subject) VALUES('${trainer.first_name}', '${trainer.last_name}', '${trainer.subject}');`;
+    dbconnection.query(query, function (err, status) {
+        // NOT OK - Error!!!
+        if (err) {
+            res.render('new_trainer', {
+                message: 'Error inserting data to the database!',
+            });
+        }
+        // All OK!!!
+        else {
+            //res.render("books", { title: 'Books', books: '', message: "All ok!!!" });
+            // res.render("books", {});
+            res.redirect('/trainers/');
+        }
+    });
+});
+
 module.exports = router;

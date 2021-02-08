@@ -66,3 +66,25 @@ tr:not(:hover):nth-child(odd) {
 tr:not(:hover):nth-child(even) {
     transition: 1.5s;
 }
+
+button {
+    width: 25%;
+    height: 100px;
+    border: 10px solid yellow;
+    background-color: red;
+    text-align: center;
+    color: forestgreen;
+    margin: 10px auto;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+button:hover {
+    transition: 0.8s;
+    background-color: blue;
+    color: black;
+}
+
+button:not(:hover) {
+    transition: 0.8s;
+}

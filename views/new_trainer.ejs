@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <title>New Trainer Form</title>
+    </head>
+    <body>
+        <h1>New Trainer Form</h1>
+        <form action="" method="post">
+            First Name: <input type="text" name="trainer_first_name" /><br />
+            Last Name <input type="text" name="trainer_last_name" /><br />
+            Subject:
+            <select name="trainer_subject">
+                <br />
+                <option value="History">History</option>
+                <option value="Programming">Programming</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Physics">Physics</option>
+                <option value="Sociology">Sociology</option>
+                <option value="Physical Education">Physical Education</option>
+            </select>
+            <br />
+            <input type="submit" value="Add new Trainer" />
+        </form>
+        <div id="message"><%= message %></div>
+    </body>
+</html>
