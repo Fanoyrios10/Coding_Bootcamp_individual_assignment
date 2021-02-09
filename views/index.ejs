@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <html>
-        <head>
-            <title><%= title %></title>
-            <meta charset="UTF-8" />
-            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-            <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1.0"
-            />
-            <link rel="stylesheet" href="/stylesheets/style.css" />
-        </head>
-        <body>
+    <head>
+        <title><%= title %></title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+    </head>
+    <body>
+        <div style="text-align: center">
             <h1><%= title %></h1>
             <p>Welcome to <%= title %></p>
-            <h3>Go to:</h3>
-            <a href="/courses/">Courses</a><br />
-            <a href="/assignments/">Assignments</a><br />
-            <a href="/students/">Students</a><br />
-            <a href="/trainers/">Trainers</a>
-        </body>
-    </html>
+            <h1>Go to:</h1>
+            <button onclick="courses()">Courses</button>
+            <button onclick="assignments()">Assignments</button>
+            <button onclick="students()">Students</button>
+            <button onclick="trainers()">Trainers</button>
+        </div>
+    </body>
+    <script>
+        function courses() {
+            location.href = '/courses/';
+        }
+        function assignments() {
+            location.href = '/assignments/';
+        }
+        function students() {
+            location.href = '/students/';
+        }
+        function trainers() {
+            location.href = '/trainers/';
+        }
+    </script>
 </html>

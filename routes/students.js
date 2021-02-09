@@ -28,6 +28,18 @@ router.get('/new/', function (req, res, next) {
     res.render('new_student', { message: '' });
 });
 
+router.get('/new/succesfull/', function (req, res, next) {
+    const query = 'SELECT * FROM students ORDER BY idstudents DESC LIMIT 1';
+    dbconnection.query(query, function (err, rows) {
+        console.log(rows);
+        res.render('new_student_succes', {
+            students: rows,
+            message:
+                'Succesfull insertion of student in the database. Below is the registration along with the Personal ID.',
+        });
+    });
+});
+
 router.post('/new/', function (req, res, next) {
     let student = new Student(
         req.body.student_first_name,
@@ -47,7 +59,7 @@ router.post('/new/', function (req, res, next) {
         else {
             //res.render("books", { title: 'Books', books: '', message: "All ok!!!" });
             // res.render("books", {});
-            res.redirect('/students/');
+            res.redirect('/students/new/succesfull/');
         }
     });
 });

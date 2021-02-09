@@ -28,6 +28,20 @@ router.get('/new/', function (req, res, next) {
     res.render('new_trainer', { message: '' });
 });
 
+router.get('/new/succesfull/', function (req, res, next) {
+    const query = 'SELECT * FROM trainers ORDER BY idtrainer DESC LIMIT 1';
+    // console.log("outside" + req.params.message);
+    dbconnection.query(query, function (err, rows) {
+        console.log(rows);
+        // console.log("inside" + req.params.message);
+        res.render('new_trainer_succes', {
+            trainers: rows,
+            message:
+                'Succesfull insertion of trainer in the database. Below is the registration along with the Personal ID.',
+        });
+    });
+});
+
 router.post('/new/', function (req, res, next) {
     let trainer = new Trainer(
         req.body.trainer_first_name,
@@ -46,7 +60,7 @@ router.post('/new/', function (req, res, next) {
         else {
             //res.render("books", { title: 'Books', books: '', message: "All ok!!!" });
             // res.render("books", {});
-            res.redirect('/trainers/');
+            res.redirect('/trainers/new/succesfull/');
         }
     });
 });
