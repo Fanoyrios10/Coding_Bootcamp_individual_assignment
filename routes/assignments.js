@@ -4,9 +4,7 @@ var dbconnection = require('../lib/db');
 
 router.get('/', function (req, res, next) {
     const query = 'SELECT * FROM assignments';
-    // console.log("outside" + req.params.message);
     dbconnection.query(query, function (err, rows) {
-        // console.log("inside" + req.params.message);
         if (err) {
             res.render('assignments', {
                 title: 'Assignments - ERROR',
@@ -20,6 +18,18 @@ router.get('/', function (req, res, next) {
                 message: req.params.message,
             });
         }
+    });
+});
+
+router.get('/assignments_courses/', function (req, res, next) {
+    const query =
+        'SELECT assignments.title AS assignments_title,assignments.description,courses.title FROM assignments JOIN courses_assignments ON assignments.idassignments=courses_assignments.idassignments JOIN courses ON courses.idcourse=courses_assignments.idcourses;';
+    dbconnection.query(query, function (err, rows) {
+        console.log(rows);
+        res.render('assignments_courses', {
+            title: 'Assignment for each course',
+            assignments: rows,
+        });
     });
 });
 

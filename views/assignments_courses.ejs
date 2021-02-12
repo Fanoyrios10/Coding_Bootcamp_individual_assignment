@@ -10,38 +10,32 @@
     <body>
         <h1 style="text-align: center"><%= title %></h1>
         <div style="text-align: center">
+            <button onclick="courses_table()">Courses Table</button>
             <button onclick="home()">Home</button>
-            <button onclick="assignments_courses()">
-                Assignment for each course
-            </button>
         </div>
         <table>
             <tr>
                 <th>Number</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Oral Mark</th>
-                <th>Write Mark</th>
-                <th>Total Mark</th>
+                <th>Assignmnet Title</th>
+                <th>Assignmnet Description</th>
+                <th>Course Title</th>
             </tr>
             <% for (let i = 0; i < assignments.length; i++) { %>
             <tr>
                 <td><%=i+1%></td>
-                <td><%= assignments[i].title%></td>
+                <td><%= assignments[i].assignments_title%></td>
                 <td><%= assignments[i].description%></td>
-                <td><%= assignments[i].oral_mark%></td>
-                <td><%= assignments[i].write_mark%></td>
-                <td><%= assignments[i].total_mark%></td>
+                <td><%= assignments[i].title%></td>
             </tr>
             <%}%>
         </table>
     </body>
     <script>
+        function courses_table() {
+            location.href = '/courses/';
+        }
         function home() {
             location.href = '/';
-        }
-        function assignments_courses() {
-            location.href = '/assignments/assignments_courses/';
         }
     </script>
 </html>

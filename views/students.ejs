@@ -11,6 +11,8 @@
         <h1 style="text-align: center"><%= title %></h1>
         <div style="text-align: center">
             <button onclick="change_new_student()">New Student</button>
+            <button onclick="assignments()">Assignment for Students</button>
+            <button onclick="courses()">Courses for Students</button>
             <button onclick="home()">Home</button>
         </div>
         <table>
@@ -38,6 +40,12 @@
         }
         function home() {
             location.href = '/';
+        }
+        function assignments() {
+            location.href = '/students/sudents_assignments/';
+        }
+        function courses() {
+            location.href = '/students/sudents_courses/';
         }
     </script>
 </html>

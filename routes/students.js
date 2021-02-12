@@ -31,11 +31,34 @@ router.get('/new/', function (req, res, next) {
 router.get('/new/succesfull/', function (req, res, next) {
     const query = 'SELECT * FROM students ORDER BY idstudents DESC LIMIT 1';
     dbconnection.query(query, function (err, rows) {
-        console.log(rows);
         res.render('new_student_succes', {
             students: rows,
             message:
                 'Succesfull insertion of student in the database. Below is the registration along with the Personal ID.',
+        });
+    });
+});
+
+router.get('/sudents_assignments/', function (req, res, next) {
+    const query =
+        'SELECT students.first_Name,students.last_name,assignments.title,students_assignments.sub_date_time FROM students JOIN students_assignments ON students.idstudents=students_assignments.idstudents JOIN assignments ON assignments.idassignments=students_assignments.idassignments';
+    dbconnection.query(query, function (err, rows) {
+        res.render('students_assignments', {
+            title: 'Assignments for Students',
+            students: rows,
+            message:
+                'Succesfull insertion of student in the database. Below is the registration along with the Personal ID.',
+        });
+    });
+});
+
+router.get('/sudents_courses/', function (req, res, next) {
+    const query =
+        'SELECT students.first_name,students.last_name,courses.title FROM students JOIN courses_students ON students.idstudents=courses_students.idstudents JOIN courses ON courses.idcourse=courses_students.idcourses';
+    dbconnection.query(query, function (err, rows) {
+        res.render('students_courses', {
+            title: 'Courses for Students',
+            students: rows,
         });
     });
 });

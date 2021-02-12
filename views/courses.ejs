@@ -11,6 +11,7 @@
         <h1 style="text-align: center"><%= title %></h1>
         <div style="text-align: center">
             <button onclick="home()">Home</button>
+            <button onclick="courses_trainers()">Courses for Trainers</button>
         </div>
         <table>
             <tr>
@@ -36,6 +37,9 @@
     <script>
         function home() {
             location.href = '/';
+        }
+        function courses_trainers() {
+            location.href = '/courses/courses_trainers/';
         }
     </script>
 </html>
